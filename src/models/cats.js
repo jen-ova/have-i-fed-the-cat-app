@@ -4,7 +4,6 @@ module.exports = (sequelize, DataTypes) => {
 		breed: DataTypes.STRING,
 		markings: DataTypes.STRING,
 		lastFed: DataTypes.DATE,
-
-        return sequelize.define('Cat', schema)
 	};
+	return sequelize.define("Cat", schema);
 };
