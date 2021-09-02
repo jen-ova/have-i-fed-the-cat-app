@@ -10,7 +10,17 @@ app.post("/cats", (req, res) => {
 });
 
 app.get("/cats", (req, res) => {
-	Cat.findAll({ where: req.query }).then((cat) => res.status(201).json(cat));
+	Cat.findAll({ where: req.query }).then((cat) => res.status(200).json(cat));
+});
+
+app.get("/cats/:catId", (req, res) => {
+	Cat.findByPk(req.params.catId).then((cat) => res.status(200).json(cat));
+});
+
+app.patch("/cats/:catId", (req, res) => {
+	Cat.update(req.body, { where: { id: req.params.catId } }).then((cat) =>
+		res.status(200).json(cat)
+	);
 });
 
 module.exports = app;
